@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Roberts Exterior Services — faithful port.
+   Premium warm-cream + serif display contractor template.
+   Per-trade accent color is injected via --brand-accent on the
+   root wrapper by the renderer (red for roofing, cyan plumbing, etc).
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* Warm cream palette — deliberate restraint, no cold greys */
+  --bg-base: #faf9f6;         /* body cream */
+  --bg-surface: #ffffff;      /* card whites */
+  --bg-alt: #f2efe9;          /* section stripe */
+  --bg-deep: #e8e4dd;         /* contact section + image frames */
+  --bg-contrast: #0c0c0c;     /* dark footer */
+
+  /* Ink tones */
+  --ink: #181818;
+  --ink-soft: #383838;
+  --ink-faint: #a0a0a0;
+  --border: #d8d4cd;
+  --border-soft: #e6e2da;
+
+  /* Per-trade accent — overridden inline via style prop on the root wrapper.
+     Default is Roberts red. */
+  --brand-accent: #c41017;
+  --brand-accent-hover: #dc1219;
+  --brand-soft: #fdf1f1;      /* tint for callouts, highlights */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--ink);
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--brand-accent);
+  color: #fff;
+}
+
+/* ── Display serif headlines ── */
+.font-display {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+.font-display-italic {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── Condensed eyebrow labels — nav links, section kickers ── */
+.eyebrow {
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.eyebrow-accent {
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+/* ── Primary filled button (solid accent, subtle elevation on hover) ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.75rem;
+  background: var(--brand-accent);
+  color: #fff;
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--brand-accent);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--brand-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(196, 16, 23, 0.22);
+}
+
+/* ── Secondary outline button (cream-on-dark, flips on hover) ── */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.75rem;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+/* Dark-on-light variant for sections with cream background */
+.btn-secondary-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.75rem;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.btn-secondary-dark:hover {
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Service card hover underline — scaleX(0→1) from left ── */
+.service-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.13);
+}
+.service-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--brand-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover::after {
+  transform: scaleX(1);
+}
+.service-card .card-image {
+  overflow: hidden;
+}
+.service-card .card-image > div {
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover .card-image > div {
+  transform: scale(1.06);
+}
+
+/* ── Gallery tile hover overlay ── */
+.gallery-tile {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.38) 100%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.gallery-tile:hover::after {
+  opacity: 1;
+}
+.gallery-tile > div {
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.gallery-tile:hover > div {
+  transform: scale(1.06);
+}
+
+/* ── Nav link underline hover ── */
+.nav-link {
+  position: relative;
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--brand-accent);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* ── Red diamond list bullet (about section) ── */
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.check-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.9rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.check-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brand-accent);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ── Large decorative open-quote glyph ── */
+.quote-glyph {
+  font-family: var(--font-display), "Playfair Display", Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.8;
+  color: var(--brand-accent);
+  opacity: 0.22;
+  font-weight: 900;
+}
+
+/* ── Overlapping stacked images (about section) ── */
+.stacked-photos {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+.stacked-photos .main-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 8px solid var(--bg-surface);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.14);
+}
+.stacked-photos .accent-photo {
+  position: absolute;
+  right: -8%;
+  bottom: -12%;
+  width: 52%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 8px solid var(--bg-surface);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Contact form inputs ── */
+.form-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 0.95rem 1.1rem;
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+}
+.form-input::placeholder {
+  color: var(--ink-faint);
+}
+.form-label {
+  display: block;
+  font-family: var(--font-eyebrow), "Barlow Condensed", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.45rem;
+}
+
+/* ── Photo slot placeholder (when real photo missing AND no fallback) ── */
+.photo-slot {
+  position: relative;
+  background: linear-gradient(135deg, #edeae3 0%, #ddd8ce 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.photo-slot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(17, 17, 17, 0.035) 25%, transparent 25%, transparent 75%, rgba(17, 17, 17, 0.035) 75%),
+    linear-gradient(45deg, rgba(17, 17, 17, 0.035) 25%, transparent 25%, transparent 75%, rgba(17, 17, 17, 0.035) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  pointer-events: none;
+}
+
+/* ── Fade cascade on hero load ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.fade-up-delay-1 { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards; }
+.fade-up-delay-2 { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s forwards; }
+.fade-up-delay-3 { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards; }
+.fade-up-delay-4 { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards; }
+
+/* ── Scroll-driven reveals (modern browsers only, no-op fallback) ── */
+@supports (animation-timeline: view()) {
+  @keyframes revealIn {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .reveal {
+    animation: revealIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+@supports not (animation-timeline: view()) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── Hero vertical accent line (right side, decorative) ── */
+.hero-accent-line {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 38%;
+  background: linear-gradient(180deg, transparent 0%, var(--brand-accent) 50%, transparent 100%);
+  pointer-events: none;
+}

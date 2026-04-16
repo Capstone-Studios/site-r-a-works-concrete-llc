@@ -1,0 +1,99 @@
+{
+  "business": {
+    "name": "Keystone Roofing Co.",
+    "trade": "roofer",
+    "trade_label": "Roofing",
+    "city": "Gurnee",
+    "state": "IL",
+    "phone": "(555) 123-4567",
+    "phone_href": "tel:5551234567",
+    "google_rating": 4.9,
+    "review_count": 142,
+    "service_areas": ["Gurnee", "Lake Forest", "Libertyville", "Vernon Hills", "Wadsworth"],
+    "top_services": ["Roof Replacement", "Storm Damage Repair", "Gutter Systems", "Free Inspections"]
+  },
+  "brand": {
+    "theme": "light",
+    "archetype_tagline": "Roofing built to outlast the weather."
+  },
+  "copy": {
+    "hero_headline": "Premium Roofing in Gurnee",
+    "hero_subheadline": "Family-owned, GAF-certified roofers protecting North Shore homes for over two decades. Precision craftsmanship, transparent pricing, and roofs that stand up to every Illinois winter.",
+    "hero_cta_primary": "Get a Free Estimate",
+    "trust_microcopy": "4.9★ · 142 Google reviews",
+    "owner_bio": "Your roof is the single most important investment protecting your home — and we treat it that way. At Keystone Roofing Co., every project is supervised by a master craftsman, finished by hand, and backed by a lifetime workmanship warranty. We don't cut corners, we don't sub out to day crews, and we don't leave until the job is right. For over twenty years, North Shore families have trusted us with their homes, and we plan to earn that trust for twenty more.",
+    "best_review": null
+  },
+  "design_tokens": {
+    "colors": {
+      "bg_base": "#faf9f6",
+      "bg_surface": "#ffffff",
+      "brand_primary": "#181818",
+      "brand_accent": "#c41017"
+    }
+  },
+  "photos": [],
+  "submissions": {
+    "site_slug": "keystone-roofing",
+    "endpoint": "",
+    "notify_email": null
+  },
+  "services": [
+    {
+      "name": "Roof Replacement",
+      "description": "Complete tear-offs with premium GAF and Owens Corning architectural shingles. Every replacement includes new underlayment, ice & water shield, and a lifetime workmanship warranty."
+    },
+    {
+      "name": "Storm Damage Repair",
+      "description": "24-hour emergency tarping and a full insurance claim walk-through. We document every hail strike, meet your adjuster on-site, and fight for the full replacement you deserve."
+    },
+    {
+      "name": "Roof Repair",
+      "description": "Fast, precise repair for leaks, missing shingles, flashing failures, and worn valleys. Most repairs are completed same-day with a two-year labor warranty."
+    },
+    {
+      "name": "Gutter Systems",
+      "description": "Seamless aluminum gutters, oversized downspouts, and leaf-guard systems sized for Illinois rainfall. Protect the roof you just paid for."
+    },
+    {
+      "name": "Free Inspections",
+      "description": "Thorough 27-point roof inspection with a full photo report — no sales pressure. Great for post-storm checkups, pre-listing, and insurance claims."
+    },
+    {
+      "name": "Flat & Low-Slope Roofs",
+      "description": "TPO, EPDM, and modified bitumen systems for garages, porches, and additions. Properly detailed at every penetration and seam."
+    }
+  ],
+  "value_props": [
+    "Licensed, Bonded & Insured",
+    "Lifetime Workmanship Warranty",
+    "GAF Master Elite Certified",
+    "Family Owned Since 2003"
+  ],
+  "reviews": [
+    {
+      "author": "Sarah M.",
+      "rating": 5,
+      "text": "After a hailstorm totaled our roof, Keystone handled everything — met the insurance adjuster, documented every panel, and replaced the whole thing in two days. The crew was respectful, the site was spotless, and the new roof looks incredible. Couldn't recommend them more."
+    },
+    {
+      "author": "Mike T.",
+      "rating": 5,
+      "text": "Called them on a Sunday during a rainstorm with water coming through the ceiling. They had a tarp up within two hours and the repair done by Tuesday. Honest pricing, no upsell, and they stood behind their work."
+    },
+    {
+      "author": "Jennifer L.",
+      "rating": 5,
+      "text": "We interviewed five roofing companies before choosing Keystone and it was the best decision we made. The owner walked us through every material option, gave us a detailed written quote, and the crew finished a full tear-off and replacement on schedule."
+    },
+    {
+      "author": "David R.",
+      "rating": 5,
+      "text": "Best roofing company in Lake County. Fair prices, quality materials, and they stand behind every nail. Our new roof has already survived two nasty winters without a single issue."
+    }
+  ],
+  "seo": {
+    "meta_title": "Keystone Roofing Co. — Premium Roofing in Gurnee, IL",
+    "meta_description": "GAF-certified family roofers serving Gurnee and the North Shore for over 20 years. Lifetime workmanship warranty, storm damage specialists, 4.9★ on Google. Call (555) 123-4567."
+  }
+}
